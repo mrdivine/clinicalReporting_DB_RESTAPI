@@ -1,0 +1,10 @@
+name: clinicalreporting
+channels:
+- rdkit
+- defaults
+dependencies:
+- pandas=0.19.2=np111py35_1
+- numpy=1.11.3=py35_0
+- lxml=3.7.3=py35_0
+- rdkit=2016.09.4=np111py35_1
+prefix: /Users/Heisenberg/anaconda/envs/clinicalreporting

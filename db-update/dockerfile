@@ -1,0 +1,13 @@
+# Use this file to update the json data dump which
+# get incorporated into the database
+FROM continuumio/miniconda3
+
+ADD db-update/environment.yml /
+ADD data /data
+ADD db-update/db-update.py /
+
+RUN conda env create -f environment.yml
+RUN source deactivate clinicalreporting
+
+
+CMD ["python", "./db-update.py"]
