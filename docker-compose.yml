@@ -9,6 +9,8 @@ services:
       build: ./mongo-seed
       links:
         - mongodb
+
+
     api:
       build: ./app
       ports:
