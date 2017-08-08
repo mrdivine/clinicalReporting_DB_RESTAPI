@@ -28,9 +28,7 @@
 # }
 
 
-schema = {"meta_information":{
-            "type":"dict",
-            "schema":{
+schema = {
                 "alias_symbol": {"type":["string","double"]},
                 "cancer": {"type":"array"},
                 "date_approved_reserved": {"type":["string","double"]},
@@ -41,7 +39,7 @@ schema = {"meta_information":{
                 "ensembl_gene_id": {"type":["string","double"]},
                 "entrez_id": {"type":"double"},
                 "gene_family": {"type":["string","double"]},
-                "symbol": {"type":"string"},
+                "gene_symbol": {"type":"string"},
                 "hgnc_id": {"type":"int32"},
                 "location": {"type":["string","double"]},
                 "locus_group": {"type":"string"},
@@ -50,17 +48,13 @@ schema = {"meta_information":{
                 "prev_symbol": {"type":["string","double"]},
                 "status": {"type":"string"},
                 "uniprot_ids": {"type":["string","double"]}
-                }
-            },
-            "nodes":{"type":"dict"},
-            "edges":{"type":"dict"}
         }
 
 
 genedrug = {
     # 'title' tag used in item links. Defaults to the resource title minus
     # the final, plural 's' (works fine in most cases but not for 'people')
-    'item_title': 'meta_information',
+    'item_title': 'gene_symbol',
 
     # by default the standard item entry point is defined as
     # '/charlotta/<ObjectId>'. We leave it untouched, and we also enable an
@@ -68,7 +62,7 @@ genedrug = {
     # GET requests at '/people/<lastname>'.
     'additional_lookup': {
         'url': 'regex("[\w]+")',
-        'field': 'meta_information'
+        'field': 'gene_symbol'
     },
 
     # We choose to override global cache-control directives for this resource.
