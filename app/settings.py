@@ -92,4 +92,5 @@ MONGO_PORT = 27017
 MONGO_DBNAME = "clinical_reporting"
 
 QUERY_MAX_RESULTS = 1000
+PAGINATION = False
 #MONGO_DBNAME = 'drivers'
