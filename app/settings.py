@@ -91,4 +91,5 @@ MONGO_PORT = 27017
 #MONGO_PASSWORD = '<your password>'
 MONGO_DBNAME = "clinical_reporting"
 
+QUERY_MAX_RESULTS = 1000
 #MONGO_DBNAME = 'drivers'
