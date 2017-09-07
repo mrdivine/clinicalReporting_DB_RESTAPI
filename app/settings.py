@@ -1,33 +1,3 @@
-#Used for prototyping on the original drivers database
-# schema = {
-#     # Schema definition, based on Cerberus grammar. Check the Cerberus project
-#     # (https://github.com/nicolaiarocci/cerberus) for details.
-#     'driver_type': {
-#         'type': 'string',
-#         'allowed':["Unkown","TSG","Oncogene","Oncogene/TSG"],
-#         'required': True
-#     },
-#     'gene_symbol': {
-#         'type': 'string',
-#         'required': True
-#         # talk about hard constraints! For the purpose of the demo
-#         # 'lastname' is an API entry-point, so we need it to be unique.
-#     },
-#     # 'role' is a list, and can only contain values from 'allowed'.
-#     'pmid': {
-#         'type': 'string',
-#         'required': True
-#     },
-#     # An embedded 'strongly-typed' dictionary.
-#     'score': {
-#         'type': 'number',
-#     },
-#     'source_name': {
-#         'type': 'string',
-#     },
-# }
-
-
 schema = {
                 "alias_symbol": {"type":["string","double"]},
                 "cancer": {"type":"array"},
@@ -47,7 +17,9 @@ schema = {
                 "name": {"type":"string"},
                 "prev_symbol": {"type":["string","double"]},
                 "status": {"type":"string"},
-                "uniprot_ids": {"type":["string","double"]}
+                "uniprot_ids": {"type":["string","double"]},
+                "driver_score": {"type":["int32","string"]},
+                "drug_evidence_score": {"type":"array"}
         }
 
 
