@@ -19,3 +19,13 @@ services:
         - ./app:/app:rw
       depends_on:
         - mongodb
+
+    ClinicalReportR:
+      build: ../ClinicalReportR
+      image: report
+      volumes:
+        - ../ClinicalReportR:/data
+      network_mode: "host"
+      depends_on:
+        - api
+        - mongodb
