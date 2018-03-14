@@ -5,10 +5,14 @@ RUN apk add --update musl python3 py-pip bash ca-certificates
 RUN pip install --upgrade pip
 RUN rm /var/cache/apk/*
 
-ADD ./requirements.txt /
+COPY ./requirements.txt /
 RUN pip install -r requirements.txt
 
-WORKDIR /api
+RUN mkdir /api
+COPY  settings.py /api
+COPY run.py /api
 
-CMD ["python", "/app/run.py"]
+WORKDIR /api
+RUN chmod +x run.py settings.py
+CMD ["python", "run.py"]
 EXPOSE 8000 5000 8080 9001
