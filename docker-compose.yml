@@ -6,27 +6,13 @@ services:
         - "27017:27017"
 
     mongo-seed:
-      image: bilges/clinicalreportingdbrestapi_mongo-seed
+      build: ./mongo-seed
       links:
         - mongodb
 
     api:
-      image: bilges/clinicalreportingdbrestapi_api
+      build: ./app
       ports:
         - "5000:5000"
-      # volumes:
-      #   - ./app:/app:rw
       depends_on:
         - mongodb
-
-    ClinicalReportR: 
-      image: report
-      volumes:
-        - ../ClinicalReportR:/data
-      network_mode: "host"
-      depends_on:
-        - api
-        - mongodb
-        - mongo-seed
-      # stdin_open: true
-      # tty: true
