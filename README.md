@@ -3,7 +3,13 @@ Used docker-compose to set up the MongoDB and attached Eve REST API
 
 command line usage is as follows:
 
-```docker-compose build && docker-compose run --service-ports ClinicalReportR /data/<VCF FILE>```
+```docker-compose run --service-ports ClinicalReportR -t /data/<VCF FILE> -p jwp```
+
+* `-t`: input file name. This should be in the data volume of ClinicalReportR service.
+* `-p`: output format to save the results.
+	* `j` to save report in JSON format
+	* `w` to save report in DOCX format
+	* `p` to save report in PDF format
 
 Note that ClinicalReportR and clinicalReporting_DB_RESTAPI should have the same parent directory.
 
